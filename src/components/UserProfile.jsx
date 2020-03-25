@@ -20,21 +20,16 @@ class UserProfile extends Component {
     }
     
     getUserData = async () => {
-      const response = await fetch('https://randomuser.me/api/?results=1');
+      const response = await fetch(`https://randomuser.me/api/?results=1`);
       const data = await response.json();
       return data.results[0];
     };
-    
-    displayInfo = (info) => {
-      
-      return true;
-    };
-    
+   
     async componentDidMount() {
       const testData = await this.getUserData();
       let street = '';
       Object.values(testData.location.street).map(item => {
-        street += item + ' ';
+        return street += item + ' ';
       })
       let locationInfo = '';
       Object.values(testData.location).map((item, index) => {
@@ -58,27 +53,30 @@ class UserProfile extends Component {
     }
     
     render() {
-      const {gender, firstName, lastName, street, location, email, dob, phone, cell, photo} = this.state;
+      
+      const {firstName, lastName, street, location, email, phone, photo} = this.state;
       return (
         <section className="profileBox">
-          <div className="userImage">
-            <img src={photo} alt="users potrait"/>
-          </div>
           <div className="userName">
-            <h1>{firstName} {lastName}</h1>
+            <div className="userImage">
+              <img src={photo} alt="users potrait"/>
+            </div>
+            <div className="nameBox">
+              <p className="greeting">Hi, I'm</p>
+              <h1>{firstName} {lastName}</h1>
+            </div>
           </div>
           <div className="locationDisplay">
             {street}
             {location}
           </div>
           <div className="infoDisplay">
-            
+            {}
           </div>
           <div className="contactInfo">
-            <a href="javascript(0): void" onFocus={this.displayInfo()}>Phone</a>
-            <a href="javascript(0): void">Date of Birth</a>
-            <a href="javascript(0): void">Location</a>
-            <a href="javascript(0): void">Email</a>
+            <p>Phone: {phone}</p>
+            <p>Email: {email}</p>
+            
           </div>
         </section>
       );
