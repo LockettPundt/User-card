@@ -19,37 +19,37 @@ class UserProfile extends Component {
       
     }
     
-    getUserData = async () => {
-      const response = await fetch(`https://randomuser.me/api/?results=1`);
+    getUserData = async (num) => {
+      const response = await fetch(`https://randomuser.me/api/?results=${num}`);
       const data = await response.json();
       return data.results[0];
     };
    
     async componentDidMount() {
-      const testData = await this.getUserData();
+      const { rando } = this.props;
       let street = '';
-      Object.values(testData.location.street).map(item => {
+      Object.values(rando.location.street).map(item => {
         return street += item + ' ';
       })
       let locationInfo = '';
-      Object.values(testData.location).map((item, index) => {
+      Object.values(rando.location).map((item, index) => {
         return ![0, 5, 6].includes(index) ? locationInfo  += item + ' ' : '';
       })
       
       this.setState({
-        gender: testData.gender,
-        firstName: testData.name.first,
-        lastName: testData.name.last,
-        photo: testData.picture.large,
-        phone: testData.phone,
-        cell: testData.cell,
-        email: testData.email,
-        dob: testData.dob,
+        gender: rando.gender,
+        firstName: rando.name.first,
+        lastName: rando.name.last,
+        photo: rando.picture.large,
+        phone: rando.phone,
+        cell: rando.cell,
+        email: rando.email,
+        dob: rando.dob,
         street: street,
         location: locationInfo,
         
       });
-      console.log(testData);
+      console.log(rando);
     }
     
     render() {
