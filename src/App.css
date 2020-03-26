@@ -13,11 +13,18 @@ img {
 }
 
 .nameBox {
-  padding-left: 4vh;
+  
+  margin-left: 4vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+
+.infoDisplay {
+  background-color: #f0ffff;
+  border-radius: 2px;
+  padding: 2vh;
 }
 
 .userName {

@@ -66,17 +66,11 @@ class UserProfile extends Component {
               <h1>{firstName} {lastName}</h1>
             </div>
           </div>
-          <div className="locationDisplay">
-            {street}
-            {location}
-          </div>
           <div className="infoDisplay">
-            {}
-          </div>
-          <div className="contactInfo">
+            <p>{street}</p>
+            <p>{location}</p>
             <p>Phone: {phone}</p>
             <p>Email: {email}</p>
-            
           </div>
         </section>
       );
