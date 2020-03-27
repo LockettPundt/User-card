@@ -38,7 +38,7 @@ img {
 
 .userName {
   display: flex;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
   height: 50%;
   font-size: 4vh;
