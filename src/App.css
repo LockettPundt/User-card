@@ -71,6 +71,7 @@ img {
   transition: 0.3s;
 }
 
+
 .hoverIconsContainer {
   min-height: 25%;
   max-height: 25%;
@@ -84,4 +85,5 @@ img {
   cursor: pointer;
   transform: scale(1.3);
   transition: 0.3s;
+  color: #bebebe;
 }
