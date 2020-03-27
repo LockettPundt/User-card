@@ -18,12 +18,6 @@ class App extends Component {
 }
 
 
-handleClick = async () => {
-  const newUserData = await this.fetchUsers(10);
-  this.setState({
-    userData: newUserData
-  });
-};
 
 async componentDidMount() {
   const userData = await this.fetchUsers(10);
