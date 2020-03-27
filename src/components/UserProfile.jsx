@@ -16,8 +16,28 @@ class UserProfile extends Component {
       phone: 0,
       cell: 0,
       dob: 0,
+      info: '',
     }
       
+    }
+    displayLocation = () => {
+      let info = `${this.state.street}, ${this.state.location}`;
+      this.setState({
+        info: info,
+      })
+    }
+    
+    displayInfo = item => {
+      let info = item;
+      this.setState({
+        info: info,
+      })
+    }
+    
+    clearDisplay = () => {
+      this.setState({
+        info: '',
+      })
     }
     
     async componentDidMount() {
@@ -48,8 +68,7 @@ class UserProfile extends Component {
     }
     
     render() {
-      
-      const {firstName, lastName, street, location, email, phone, photo} = this.state;
+      const {firstName, lastName, street, location, email, phone, photo, info} = this.state;
       return (
         <Container className="App">
           <Card className="profileBox">
@@ -63,9 +82,15 @@ class UserProfile extends Component {
               </div>
             </Container>
             <Container className="infoDisplay">
-              <p><Icon isSize="small" className="fas fa-map-marker-alt"/> {street}, {location}</p>
-              <p><Icon isSize="small" className="fas fa-mobile-alt" /> {phone}</p>
-              <p><Icon isSize="small" className="far fa-envelope" /> {email}</p>
+              <Container className="info">
+                <p>{info}</p>
+              </Container>
+              <Container className="hoverIconsContainer">
+                <p><Icon isSize="medium" className="fas fa-map-marker-alt fa-2x" onMouseEnter={this.displayLocation} onMouseLeave={this.clearDisplay}/></p>
+                <p><Icon isSize="medium" className="fas fa-mobile-alt fa-2x" onMouseEnter={this.displayInfo.bind(this, phone)} onMouseLeave={this.clearDisplay}/></p>
+                <p><Icon isSize="medium" className="far fa-envelope fa-2x" onMouseEnter={this.displayInfo.bind(this, email)} onMouseLeave={this.clearDisplay}/></p>
+              </Container>
+              
               
             </Container>
           </Card>
