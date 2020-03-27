@@ -1,9 +1,25 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
+
+
 .App {
   font-family: helvetica;
   font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 img {
+  width: auto;
+  height: auto;
   border-radius: 50%;
 }
 
@@ -17,30 +33,36 @@ img {
   margin-left: 4vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .infoDisplay {
+  align-self: flex-end;
   background-color: #f0ffff;
   border-radius: 2px;
   padding: 2vh;
+  height: 50%;
+  width: 100%;
 }
 
 .userName {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50%;
   font-size: 4vh;
   padding: 1vw;
 }
 
 .profileBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   font-size: 3vh;
   border-radius: 2px;;
   background-color: #d7e6eb;
   height: auto;
   padding: 2vh;
   width: 60vh;
-  margin: 5vh auto
+  margin: 4vh auto
 }
