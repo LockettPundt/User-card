@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImage, Container, Navbar } from 'bloomer';
+import { Card, CardImage, Container, Navbar, Icon } from 'bloomer';
 
 import "../App.css";
 
@@ -63,10 +63,10 @@ class UserProfile extends Component {
               </div>
             </Container>
             <Container className="infoDisplay">
-              <p>{street}</p>
-              <p>{location}</p>
-              <p>Phone: {phone}</p>
-              <p>Email: {email}</p>
+              <p><Icon isSize="small" className="fas fa-map-marker-alt"/> {street}, {location}</p>
+              <p><Icon isSize="small" className="fas fa-mobile-alt" /> {phone}</p>
+              <p><Icon isSize="small" className="far fa-envelope" /> {email}</p>
+              
             </Container>
           </Card>
         </Container>
