@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import { Card, CardImage, Container, Navbar, Icon } from 'bloomer';
 
@@ -48,7 +49,7 @@ class UserProfile extends Component {
       })
       let locationInfo = '';
       Object.values(rando.location).map((item, index) => {
-        return ![0, 5, 6].includes(index) ? locationInfo  += item + ' ' : '';
+        return ![0, 5, 6].includes(index) ? locationInfo  += `${item} ` : '';
       })
       
       this.setState({
@@ -64,11 +65,10 @@ class UserProfile extends Component {
         location: locationInfo,
         
       });
-      console.log(rando);
     }
     
     render() {
-      const {firstName, lastName, street, location, email, phone, photo, info} = this.state;
+      const {firstName, lastName, street, cell, email, phone, photo, info} = this.state;
       return (
         <Container className="App">
           <Card className="profileBox">
@@ -87,6 +87,7 @@ class UserProfile extends Component {
               </Container>
               <Container className="hoverIconsContainer">
                 <p><Icon isSize="medium" className="fas fa-map-marker-alt fa-2x" onMouseEnter={this.displayLocation} onMouseLeave={this.clearDisplay}/></p>
+                <p><Icon isSize="medium" className="fas fa-phone fa-2x" onMouseEnter={this.displayInfo.bind(this, cell)} onMouseLeave={this.clearDisplay}/></p>
                 <p><Icon isSize="medium" className="fas fa-mobile-alt fa-2x" onMouseEnter={this.displayInfo.bind(this, phone)} onMouseLeave={this.clearDisplay}/></p>
                 <p><Icon isSize="medium" className="far fa-envelope fa-2x" onMouseEnter={this.displayInfo.bind(this, email)} onMouseLeave={this.clearDisplay}/></p>
               </Container>
