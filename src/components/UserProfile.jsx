@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, CardImage, Container, Navbar } from 'bloomer';
 
 import "../App.css";
 
@@ -19,12 +20,6 @@ class UserProfile extends Component {
       
     }
     
-    getUserData = async (num) => {
-      const response = await fetch(`https://randomuser.me/api/?results=${num}`);
-      const data = await response.json();
-      return data.results[0];
-    };
-   
     async componentDidMount() {
       const { rando } = this.props;
       let street = '';
@@ -56,23 +51,26 @@ class UserProfile extends Component {
       
       const {firstName, lastName, street, location, email, phone, photo} = this.state;
       return (
-        <section className="profileBox">
-          <div className="userName">
-            <div className="userImage">
-              <img src={photo} alt="users potrait"/>
-            </div>
-            <div className="nameBox">
-              <p className="greeting">Hi, I'm</p>
-              <h1>{firstName} {lastName}</h1>
-            </div>
-          </div>
-          <div className="infoDisplay">
-            <p>{street}</p>
-            <p>{location}</p>
-            <p>Phone: {phone}</p>
-            <p>Email: {email}</p>
-          </div>
-        </section>
+        <Container className="App">
+          <Card className="profileBox">
+            <Container className="userName">
+              <CardImage >
+                <img src={photo} alt="users potrait"/>
+              </CardImage>
+              <div className="nameBox">
+                <p className="greeting">Hi, I'm</p>
+                <h1>{firstName} {lastName}</h1>
+              </div>
+            </Container>
+            <Container className="infoDisplay">
+              <p>{street}</p>
+              <p>{location}</p>
+              <p>Phone: {phone}</p>
+              <p>Email: {email}</p>
+            </Container>
+          </Card>
+        </Container>
+        
       );
     }
     

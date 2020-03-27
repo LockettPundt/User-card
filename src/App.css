@@ -1,17 +1,5 @@
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-  }
-
-
 
 .App {
-  font-family: helvetica;
   font-size: 16px;
   display: flex;
   flex-wrap: wrap;
@@ -29,18 +17,18 @@ img {
 }
 
 .nameBox {
-  
   margin-left: 4vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  line-height: 7vh;
 }
 
 .infoDisplay {
-  align-self: flex-end;
+  align-items: center;
   background-color: #f0ffff;
   border-radius: 2px;
-  padding: 2vh;
+  padding: 4vh 2vh;
   height: 50%;
   width: 100%;
 }
@@ -55,14 +43,13 @@ img {
 }
 
 .profileBox {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: flex-end;
-  font-size: 3vh;
-  border-radius: 2px;;
-  background-color: #d7e6eb;
+  border-radius: 2px;
+  /* background-color: #d7e6eb; */
   height: auto;
-  padding: 2vh;
-  width: 60vh;
+  padding-top: 2vh;
+  width: 55vh;
   margin: 4vh auto
 }

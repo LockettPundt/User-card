@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import './App.css';
+// import './App.css';
+import "../node_modules/bulma/css/bulma.css"
 import UserProfile from './components/UserProfile';
 
 class App extends Component {
