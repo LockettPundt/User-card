@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import './App.css';
+// import './App.css';
+import "../node_modules/bulma/css/bulma.css"
 import UserProfile from './components/UserProfile';
 
 class App extends Component {
@@ -17,26 +18,19 @@ class App extends Component {
 }
 
 
-handleClick = async () => {
-  const newUserData = await this.fetchUsers(10);
-  this.setState({
-    userData: newUserData
-  });
-};
 
 async componentDidMount() {
-  const userData = await this.fetchUsers(10);
+  const userData = await this.fetchUsers(17);
   this.setState({
     userData: userData,
   })
 }
   render() {
     const {userData} = this.state;
-    console.log("this is the userData",userData);
   return (
     <div className="App">
-      {userData.map(item => {
-        return <UserProfile rando={item} />
+      {userData.map((item, index) => {
+        return <UserProfile rando={item} key={index}/>
       })}
       
       
