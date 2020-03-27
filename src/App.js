@@ -20,18 +20,17 @@ class App extends Component {
 
 
 async componentDidMount() {
-  const userData = await this.fetchUsers(10);
+  const userData = await this.fetchUsers(17);
   this.setState({
     userData: userData,
   })
 }
   render() {
     const {userData} = this.state;
-    console.log("this is the userData",userData);
   return (
     <div className="App">
-      {userData.map(item => {
-        return <UserProfile rando={item} />
+      {userData.map((item, index) => {
+        return <UserProfile rando={item} key={index}/>
       })}
       
       
